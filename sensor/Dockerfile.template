@@ -1,4 +1,4 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%:raspberry-pi-latest
+FROM balenalib/raspberry-pi-alpine
 
 RUN install_packages unzip git python3 python3-pip 
 
