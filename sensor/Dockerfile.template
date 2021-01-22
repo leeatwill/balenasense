@@ -1,12 +1,11 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-build
 
-# ARG BSEC_FILENAME=bsec_1-4-8-0_generic_release.zip
-
 RUN install_packages \
         unzip \ 
         git \
         python3 \
         python3-pip \
+
 RUN pip3 install --upgrade adafruit-python-shell
 RUN wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
 RUN python3 ./raspi-blinka.py
@@ -19,25 +18,7 @@ RUN apt-get install wiringpi
 WORKDIR /usr/src/app
 
 COPY ./single_chan_pkt_fwd ./single_chan_pkt_fwd
-WORKDIR /usr/src/app/single_chan_pkt_fwd
-CMD ["sudo make all"]
-# RUN wget https://www.bosch-sensortec.com/media/boschsensortec/downloads/bsec/$BSEC_FILENAME
-# RUN unzip -d bsec_bme680_linux/src $BSEC_FILENAME
-# RUN echo $BSEC_FILENAME > version
-
-# RUN wget https://github.com/BoschSensortec/BME680_driver/archive/bme680_v3.5.10.tar.gz
-# RUN mkdir bsec_bme680_linux/src/BSEC_1.4.8.0_Generic_Release/API
-# RUN tar xfzv bme680_v3.5.10.tar.gz -C bsec_bme680_linux/src/BSEC_1.4.8.0_Generic_Release/API --strip-components=1
 
 WORKDIR /usr/src/app/single_chan_pkt_fwd
-RUN chmod +x make.sh
-RUN ./make.sh
 
-RUN pip3 install RPi.GPIO
-
-WORKDIR /usr/src/app
-COPY ./scripts ./scripts
-COPY ./entry.sh /usr/src/app/
-RUN chmod +x /usr/src/app/entry.sh
-
-CMD ["./entry.sh"]
+RUN make install 
