@@ -9,7 +9,7 @@ RUN wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scrip
 RUN pip3 install adafruit-circuitpython-ssd1306
 RUN pip3 install adafruit-circuitpython-framebuf
 RUN pip3 install adafruit-circuitpython-rfm9x
-RUN apt-get install wiringpi
+RUN pip3 install wiringpi
 
 WORKDIR /usr/src/app
 
