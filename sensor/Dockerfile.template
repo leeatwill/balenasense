@@ -22,3 +22,10 @@ RUN git https://github.com/leeatwill/single_chan_pkt_fwd.git
 WORKDIR /usr/src/app/single_chan_pkt_fwd
 
 RUN make install 
+
+WORKDIR /usr/src/app
+COPY ./scripts ./scripts
+COPY ./entry.sh /usr/src/app/
+RUN chmod +x /usr/src/app/entry.sh
+
+CMD ["./entry.sh"]
