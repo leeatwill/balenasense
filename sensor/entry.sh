@@ -16,4 +16,4 @@ cp -n /usr/src/app/single_chan_pkt_fwd/scpf_iaq.config /data/sensor/scpf_iaq.con
 
 echo "================ Starting Balena Sense ================"
 
-exec python /usr/src/app/scripts/sensor.py
+exec python3 /usr/src/app/single_chan_pkt_fwd/lorawan_gateway.py
