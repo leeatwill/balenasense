@@ -37,9 +37,9 @@ services:
       - "1883:1883"
     restart: always
   dashboard:
-    image: balenablocks/dashboard:raspberrypi3
+    image: balenablocks/dashboard:raspberrypi
     restart: always
     ports:
-        - "80"
+      - "80"
     volumes:
-        - 'dashboard:/data'
+      - 'dashboard:/data'
