@@ -2,6 +2,16 @@ version: '2'
 volumes:
     sense-data:
 services:
+    connector:
+        image: balenablocks/connector:raspberrypi3
+        restart: always
+        labels:
+          io.balena.features.balena-api: '1'
+        privileged: true
+        environment: 
+          - 'ENABLE_EXTERNAL_HTTP_LISTENER=1'
+        ports:
+          - "8080"
   influxdb:
     restart: always
     build: ./influxdb
@@ -36,3 +46,10 @@ services:
     ports:
       - "1883:1883"
     restart: always
+    dashboard:
+        image: balenablocks/dashboard:raspberrypi3
+        restart: always
+        ports:
+            - "80"
+        volumes:
+            - 'dashboard:/data'
