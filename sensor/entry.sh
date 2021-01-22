@@ -11,9 +11,6 @@ mkdir -p /data/sensor
 # As we've now updated, copy the current version here so it matches on next pass
 cp /usr/src/app/version /data/sensor/version
 
-touch /data/sensor/bsec_iaq.state
-cp -n /usr/src/app/single_chan_pkt_fwd/scpf_iaq.config /data/sensor/scpf_iaq.config
-
 echo "================ Starting Balena Sense ================"
 
 exec python3 /usr/src/app/single_chan_pkt_fwd/lorawan_gateway.py
