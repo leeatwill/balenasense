@@ -1,8 +1,8 @@
 FROM balenalib/raspberry-pi-debian
 
 RUN install_packages unzip git python3 
-RUN apt upgrade
-RUN apt install python3-pip
+RUN apt-get upgrade
+RUN apt-get install python3-pip
 RUN pip3 install --upgrade setuptools
 RUN pip3 install --upgrade adafruit-python-shell
 RUN wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
@@ -11,7 +11,7 @@ RUN python3 ./raspi-blinka.py
 RUN pip3 install adafruit-circuitpython-ssd1306
 RUN pip3 install adafruit-circuitpython-framebuf
 RUN pip3 install adafruit-circuitpython-rfm9x
-RUN apt install wiringpi
+RUN apt-get install wiringpi
 
 WORKDIR /usr/src/app
 
