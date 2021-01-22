@@ -10,9 +10,9 @@ RUN pip3 install adafruit-circuitpython-ssd1306
 RUN pip3 install adafruit-circuitpython-framebuf
 RUN pip3 install adafruit-circuitpython-rfm9x
 #RUN pip3 install wiringpi
-RUN git clone https://github.com/WiringPi/WiringPi.git
-WORKDIR /usr/src/app/WiringPi
-CMD ["./build"]
+#RUN git clone https://github.com/WiringPi/WiringPi.git
+#WORKDIR /usr/src/app/WiringPi
+#CMD ["./build"]
 
 WORKDIR /usr/src/app
 
