@@ -1,7 +1,6 @@
 FROM balenalib/raspberry-pi-alpine
 
 RUN install_packages unzip git python3 
-RUN apt update
 RUN apt upgrade
 RUN apt install python3-pip
 RUN pip3 install --upgrade setuptools
